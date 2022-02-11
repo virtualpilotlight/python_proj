@@ -29,4 +29,5 @@ user_input = ""
 while user_input != "exit":
 	# user input is storred as a string
 	user_input = input("pick a number:\n")
-	validate_and_execute()
+	for num_of_days in user_input:
+		validate_and_execute()
