@@ -12,7 +12,7 @@ def days_to_units(num_of_days):
 def validate_and_execute():
 	try:
 		# int() converts the str to an int,
-		user_num = int(user_input)
+		user_num = int(num_of_days_element)
 		if user_num > 0:	
 			# this runs the function
 			calculated_value = days_to_units(user_num)
@@ -29,5 +29,5 @@ user_input = ""
 while user_input != "exit":
 	# user input is storred as a string
 	user_input = input("pick a number:\n")
-	for num_of_days in user_input:
+	for num_of_days_element in user_input.split():
 		validate_and_execute()
