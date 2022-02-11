@@ -28,7 +28,12 @@ def validate_and_execute():
 user_input = ""
 while user_input != "exit":
 	# user input is storred as a string
-	user_input = input("Enter days as CSV (comma seperated values) to be converted to hours:\n")
+	user_input = input("Enter number days as CSV (comma seperated values) to be converted to hours:\n")
+	list_of_days = user_input.split(", ")
+	print(list_of_days)
+	print(set(list_of_days))
+	print(type(list_of_days))
+	print(type(set(list_of_days)))
 	# split() splits on a space by default but can split on a tab with '\t'
-	for num_of_days_element in user_input.split(","):		
+	for num_of_days_element in set(user_input.split(", ")):
 		validate_and_execute()
