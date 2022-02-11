@@ -10,7 +10,7 @@ def days_to_units(num_of_days):
 	return f"{num_of_days} days are {num_of_days * total} {units}."
 
 def validate_and_execute():
-	if user_input.isdigit():
+	try:
 		# int() converts the str to an int,
 		user_num = int(user_input)
 		if user_num > 0:	
@@ -20,9 +20,13 @@ def validate_and_execute():
 			print(calculated_value)
 		elif user_num == 0:
 			print("zero doesn't makes sense. positives only.")
-	else:
+		else:
+			print("no negatives.")
+	except ValueError:
 		print("whole positive numbers only.")	
 
-# user input is storred as a string
-user_input = input("pick a number:\n")
-validate_and_execute()
+user_input = ""
+while user_input != "exit":
+	# user input is storred as a string
+	user_input = input("pick a number:\n")
+	validate_and_execute()
