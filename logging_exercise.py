@@ -53,5 +53,5 @@ import requests
 log_json["status"]
 
 while json_obj["status"] >= 500 And < 600:
-  POST
+  POST "path": , "User-Agent"
 #  pass
