@@ -37,3 +37,4 @@ while user_input != "exit":
 	# split() splits on a space by default but can split on a tab with '\t'
 	for num_of_days_element in set(user_input.split(", ")):
 		validate_and_execute()
+ 
