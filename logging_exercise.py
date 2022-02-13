@@ -48,10 +48,10 @@ import json
 import requests
 
 
-with open('./logs.json', 'r') as f:
-  data = json.load(f)
 
-print(data)
 
-#while json_obj >= 500 And < 600:
+log_json["status"]
+
+while json_obj["status"] >= 500 And < 600:
+  POST
 #  pass

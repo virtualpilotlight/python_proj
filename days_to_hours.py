@@ -1,21 +1,23 @@
 # this is a comment
 
-# variable assignment of an int 
-total = 24
-# variable assignment of a string
-units = "hours"
+
 # a function is assigned with def name_of_func(params):
-def days_to_units(num_of_days):
+def days_to_units(num_of_days, conversion_unit):
+	if conversion_unit == "hours":
+		return f"{num_of_days} days are {num_of_days * 24} hours"
+	elif conversion_unit == "minutes":
+		return f"{num_of_days} days are {num_of_days * 24 * 60} hours"
 	# return returns the value, for concat use f
-	return f"{num_of_days} days are {num_of_days * total} {units}."
+	else:
+		return "unsupported unit."
 
 def validate_and_execute():
 	try:
 		# int() converts the str to an int,
-		user_num = int(num_of_days_element)
+		user_num = int(days_and_unit_dictionary["days"])
 		if user_num > 0:	
 			# this runs the function
-			calculated_value = days_to_units(user_num)
+			calculated_value = days_to_units(user_num, days_and_unit_dictionary["unit"])
 			# this prints the results of the finished function
 			print(calculated_value)
 		elif user_num == 0:
@@ -28,13 +30,13 @@ def validate_and_execute():
 user_input = ""
 while user_input != "exit":
 	# user input is storred as a string
-	user_input = input("Enter number days as CSV (comma seperated values) to be converted to hours:\n")
-	list_of_days = user_input.split(", ")
-	print(list_of_days)
-	print(set(list_of_days))
-	print(type(list_of_days))
-	print(type(set(list_of_days)))
+	user_input = input("Enter number days and conversion unit!\n")
+	days_and_unit = user_input.split(":")
 	# split() splits on a space by default but can split on a tab with '\t'
-	for num_of_days_element in set(user_input.split(", ")):
-		validate_and_execute()
- 
+	print(days_and_unit)
+	days_and_unit_dictionary = {
+ 		"days": days_and_unit[0], 
+ 		"unit": days_and_unit[1]
+ 	}
+	print(days_and_unit_dictionary)
+	validate_and_execute()
