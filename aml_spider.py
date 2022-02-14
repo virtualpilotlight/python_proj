@@ -22,6 +22,15 @@ print(urls)
 
 def soup_it(urls):
 	for val in urls:
+		if '.mp3' in val:
+			# v2 did not work, this is a good place to start with the saving the files to disk
+			print(f"Downloading File {name}")
+			            download = req.get(href)
+			            if download.status_code == 200:
+			                with open(name, 'wb') as f:
+			                    f.write(download.content)
+			            else:
+			                print(f"Download Failed For File {name}")
 		req = requests.get(val)
 		soup = BeautifulSoup(req.text, "html.parser")
 		print("soup")
@@ -30,3 +39,6 @@ def soup_it(urls):
 
 soup_it(urls)
 print(urls)
+
+
+
