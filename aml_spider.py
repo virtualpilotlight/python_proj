@@ -2,9 +2,8 @@
 
 from bs4 import BeautifulSoup
 import requests
+
 url = "http://allmylove.org/audio/"
-
-
 req = requests.get(url)
 soup = BeautifulSoup(req.text, "html.parser")
 print(soup)
@@ -16,7 +15,9 @@ for link in soup.find_all('a'):
 	new_url = url + link.get('href')
 	urls.add(new_url)
 
-
 print(urls)
 
-
+for val in urls:
+	req = requests.get(val)
+	soup = BeautifulSoup(req.text, "html.parser")
+	print(soup)
