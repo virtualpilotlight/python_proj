@@ -14,11 +14,8 @@ urls = {url}
 for link in soup.find_all('a'):
 	global urls
 	new_url = url + link.get('href')
-	# print (new_url)
-	# print(type(new_url))
 	urls.add(new_url)
-	# print(urls)
-	# print(type(urls))
+
 
 print(urls)
 
