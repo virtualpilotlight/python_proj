@@ -36,15 +36,31 @@ def get_links(soup):
 		if new_url not in urls:
 			urls.update({new_url: False})
 		else:
+			urls.update({new_url: True})
 			print("already been souped")
 
 get_links(soup)
-
 print(urls)
+ 
+ """
+ """
 
-"""
-soup_it needs some work
-"""
+for outter_key in urls:
+	print 'Outter Key = ',outter_key
+	for inner_key in urls[outter_key]:
+		print '%s, %s' % (inner_key,urls[outter_key][inner_key])
+
+
+
+if urls.values() is False:
+	req = requests.get(val)
+	soup = BeautifulSoup(req.text, "html.parser")
+	print("soup")
+else:
+	print("no soup")
+ 
+
+ urls[][False]
 
 def soup_it(urls):
 
