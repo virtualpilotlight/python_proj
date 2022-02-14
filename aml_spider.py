@@ -10,14 +10,20 @@ print(soup)
 
 urls = {url}
 
-for link in soup.find_all('a'):
-	global urls
-	new_url = url + link.get('href')
-	urls.add(new_url)
+def get_links(soup):
+	for link in soup.find_all('a'):
+		global urls
+		new_url = url + link.get('href')
+		urls.add(new_url)
+
+get_links(soup)
 
 print(urls)
 
-for val in urls:
-	req = requests.get(val)
-	soup = BeautifulSoup(req.text, "html.parser")
-	print(soup)
+def soup_it(urls):
+	for val in urls:
+		req = requests.get(val)
+		soup = BeautifulSoup(req.text, "html.parser")
+		print(soup)
+
+soup_it(urls)
