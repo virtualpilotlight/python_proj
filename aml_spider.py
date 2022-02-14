@@ -24,6 +24,8 @@ def soup_it(urls):
 	for val in urls:
 		req = requests.get(val)
 		soup = BeautifulSoup(req.text, "html.parser")
-		print(soup)
+		print("soup")
+		get_links(soup)
+		print(urls)
 
 soup_it(urls)
