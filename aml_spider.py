@@ -43,12 +43,11 @@ get_links(soup)
 print(urls)
 
 """
-above this line working as expected
+soup_it needs some work
 """
 
- if value in urls False
-
 def soup_it(urls):
+
 	for val in urls:
 		req = requests.get(val)
 		soup = BeautifulSoup(req.text, "html.parser")
