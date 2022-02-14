@@ -23,19 +23,30 @@ import requests
 url = "http://allmylove.org/audio/"
 req = requests.get(url)
 soup = BeautifulSoup(req.text, "html.parser")
+
 print(soup)
 
-urls = {url}
+urls = {url: True}
+print(type(urls))
 
 def get_links(soup):
 	for link in soup.find_all('a'):
 		global urls
 		new_url = url + link.get('href')
-		urls.add(new_url)
+		if new_url not in urls:
+			urls.update({new_url: False})
+		else:
+			print("already been souped")
 
 get_links(soup)
 
 print(urls)
+
+"""
+above this line working as expected
+"""
+
+ if value in urls False
 
 def soup_it(urls):
 	for val in urls:
