@@ -29,3 +29,4 @@ def soup_it(urls):
 		print(urls)
 
 soup_it(urls)
+print(urls)
