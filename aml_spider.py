@@ -26,44 +26,19 @@ soup = BeautifulSoup(req.text, "html.parser")
 
 print(soup)
 
-urls = {url: True}
-print(type(urls))
+urls = {url}
 
 def get_links(soup):
 	for link in soup.find_all('a'):
 		global urls
 		new_url = url + link.get('href')
-		if new_url not in urls:
-			urls.update({new_url: False})
-		else:
-			urls.update({new_url: True})
-			print("already been souped")
+		urls.add(new_url)
 
 get_links(soup)
 print(urls)
  
- """
- """
-
-for outter_key in urls:
-	print 'Outter Key = ',outter_key
-	for inner_key in urls[outter_key]:
-		print '%s, %s' % (inner_key,urls[outter_key][inner_key])
-
-
-
-if urls.values() is False:
-	req = requests.get(val)
-	soup = BeautifulSoup(req.text, "html.parser")
-	print("soup")
-else:
-	print("no soup")
- 
-
- urls[][False]
 
 def soup_it(urls):
-
 	for val in urls:
 		req = requests.get(val)
 		soup = BeautifulSoup(req.text, "html.parser")
