@@ -40,6 +40,7 @@ print(urls)
 
 def soup_it(urls):
 	for val in urls:
+		print(val)
 		req = requests.get(val)
 		soup = BeautifulSoup(req.text, "html.parser")
 		print("soup")
