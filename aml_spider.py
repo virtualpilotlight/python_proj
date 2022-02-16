@@ -26,8 +26,9 @@ soup = BeautifulSoup(req.text, "html.parser")
 
 print("soup")
 
+counter = 0
+
 def get_links(soup):
-	counter = 0
 	urls = {counter: url}
 	for link in soup.find_all('a'):
 		new_url = url + link.get('href')
@@ -44,15 +45,20 @@ def get_links(soup):
 
 get_links(soup)
 print(urls)
+urls.pop(0)
+print(urls)
 url_list = urls.values()
 
 def soup_it(url_list):
+	print("inside soup_it")
 	for val in url_list:
+		print(val)
 		req = requests.get(val)
+		print("req successful")
 		soup = BeautifulSoup(req.text, "html.parser")
 		print("soup")
 		get_links(soup)
-		print(urls)
+		print("links gotten")
 
 soup_it(url_list)
 print(urls)
