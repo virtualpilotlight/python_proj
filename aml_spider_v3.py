@@ -22,10 +22,11 @@ def get_links(soup):
 			url_list.add(new_url)
 	return url_list
 
-# wtf is <class 'dict_values'>???
-
 get_links(soup)
 print(url_list)
+
+# wtf is <class 'dict_values'>???
+
 
 """
 """

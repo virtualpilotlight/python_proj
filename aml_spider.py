@@ -24,12 +24,14 @@ url = "http://allmylove.org/audio/"
 req = requests.get(url)
 soup = BeautifulSoup(req.text, "html.parser")
 
-print("soup")
+print(soup)
 
 counter = 0
+urls = {counter: url}
 
 def get_links(soup):
-	urls = {counter: url}
+	global counter
+	global urls
 	for link in soup.find_all('a'):
 		new_url = url + link.get('href')
 		if "?" in new_url:
@@ -47,7 +49,8 @@ get_links(soup)
 print(urls)
 urls.pop(0)
 print(urls)
-url_list = urls.values()
+url_list = set(dict.values(urls))
+print(type(url_list))
 
 def soup_it(url_list):
 	print("inside soup_it")
@@ -62,6 +65,17 @@ def soup_it(url_list):
 
 soup_it(url_list)
 print(urls)
+new_dict = urls
+print(type(new_dict))
+# 441 total links, 15 initial
+print(new_dict)
+
+for x in new_dict.keys():
+	print(x)
+
+i = 1
+while i < 15 
+	
 
 
 """
