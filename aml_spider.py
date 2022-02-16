@@ -26,11 +26,13 @@ soup = BeautifulSoup(req.text, "html.parser")
 
 print("soup")
 
-urls = {url}
+counter = 0
+urls = {counter: url}
 
 def get_links(soup):
 	for link in soup.find_all('a'):
 		global urls
+		global counter
 		new_url = url + link.get('href')
 		if "?" in new_url:
 			print("no soup")
@@ -39,24 +41,24 @@ def get_links(soup):
 		elif "http://allmylove.org/audio//" in new_url:
 			print("no extra slashes")
 		else:
-			urls.add(new_url)
+			counter += 1
+			urls.update({counter: new_url})
+
+print(urls)
 
 get_links(soup)
 print(urls)
+url_list = urls.values()
 
-"""
-in order to make soup_it work I need to 
-"""
-
-def soup_it(urls):
-	for val in urls:
+def soup_it(url_list):
+	for val in url_list:
 		req = requests.get(val)
 		soup = BeautifulSoup(req.text, "html.parser")
 		print("soup")
 		get_links(soup)
 		print(urls)
 
-soup_it(urls)
+soup_it(url_list)
 print(urls)
 
 
