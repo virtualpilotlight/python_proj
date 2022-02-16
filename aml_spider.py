@@ -32,18 +32,17 @@ def get_links(soup):
 	for link in soup.find_all('a'):
 		global urls
 		new_url = url + link.get('href')
-		urls.add(new_url)
-
-
-for val in urls:
-	if "allmylove" in val:
-		print("no soup")
-	else:
-		print("soup")
+		if "?" in new_url:
+			print("no soup")
+		elif new_url == url:
+			print("already been souped")
+		elif "http://allmylove.org/audio//" in new_url:
+			print("no extra slashes")
+		else:
+			urls.add(new_url)
 
 get_links(soup)
 print(urls)
- 
 
 def soup_it(urls):
 	for val in urls:
