@@ -24,7 +24,7 @@ url = "http://allmylove.org/audio/"
 req = requests.get(url)
 soup = BeautifulSoup(req.text, "html.parser")
 
-print(soup)
+print("soup")
 
 urls = {url}
 
@@ -34,13 +34,19 @@ def get_links(soup):
 		new_url = url + link.get('href')
 		urls.add(new_url)
 
+
+for val in urls:
+	if "allmylove" in val:
+		print("no soup")
+	else:
+		print("soup")
+
 get_links(soup)
 print(urls)
  
 
 def soup_it(urls):
 	for val in urls:
-		print(val)
 		req = requests.get(val)
 		soup = BeautifulSoup(req.text, "html.parser")
 		print("soup")
