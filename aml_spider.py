@@ -26,13 +26,10 @@ soup = BeautifulSoup(req.text, "html.parser")
 
 print("soup")
 
-counter = 0
-urls = {counter: url}
-
 def get_links(soup):
+	counter = 0
+	urls = {counter: url}
 	for link in soup.find_all('a'):
-		global urls
-		global counter
 		new_url = url + link.get('href')
 		if "?" in new_url:
 			print("no soup")
@@ -43,8 +40,7 @@ def get_links(soup):
 		else:
 			counter += 1
 			urls.update({counter: new_url})
-
-print(urls)
+	return urls
 
 get_links(soup)
 print(urls)
