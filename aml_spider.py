@@ -44,6 +44,10 @@ def get_links(soup):
 get_links(soup)
 print(urls)
 
+"""
+in order to make soup_it work I need to 
+"""
+
 def soup_it(urls):
 	for val in urls:
 		req = requests.get(val)
