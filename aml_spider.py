@@ -26,37 +26,56 @@ soup = BeautifulSoup(req.text, "html.parser")
 
 print(soup)
 
-urls = {url: True}
-print(type(urls))
+counter = 0
+urls = {counter: url}
 
 def get_links(soup):
+	global counter
+	global urls
 	for link in soup.find_all('a'):
-		global urls
 		new_url = url + link.get('href')
-		if new_url not in urls:
-			urls.update({new_url: False})
-		else:
+		if "?" in new_url:
+			print("no soup")
+		elif new_url == url:
 			print("already been souped")
+		elif "http://allmylove.org/audio//" in new_url:
+			print("no extra slashes")
+		else:
+			counter += 1
+			urls.update({counter: new_url})
+	return urls
 
 get_links(soup)
-
 print(urls)
+urls.pop(0)
+print(urls)
+url_list = set(dict.values(urls))
+print(type(url_list))
 
-"""
-soup_it needs some work
-"""
-
-def soup_it(urls):
-
-	for val in urls:
+def soup_it(url_list):
+	print("inside soup_it")
+	for val in url_list:
+		print(val)
 		req = requests.get(val)
+		print("req successful")
 		soup = BeautifulSoup(req.text, "html.parser")
 		print("soup")
 		get_links(soup)
-		print(urls)
+		print("links gotten")
 
-soup_it(urls)
+soup_it(url_list)
 print(urls)
+new_dict = urls
+print(type(new_dict))
+# 441 total links, 15 initial
+print(new_dict)
+
+for x in new_dict.keys():
+	print(x)
+
+i = 1
+while i < 15 
+	
 
 
 """
