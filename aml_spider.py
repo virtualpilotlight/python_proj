@@ -24,7 +24,7 @@ url = "http://allmylove.org/audio/"
 req = requests.get(url)
 soup = BeautifulSoup(req.text, "html.parser")
 
-print(soup)
+print("initial soup")
 
 counter = 0
 urls = {counter: url}
@@ -55,26 +55,31 @@ print(type(url_list))
 def soup_it(url_list):
 	print("inside soup_it")
 	for val in url_list:
-		print(val)
 		req = requests.get(val)
-		print("req successful")
 		soup = BeautifulSoup(req.text, "html.parser")
-		print("soup")
 		get_links(soup)
-		print("links gotten")
 
 soup_it(url_list)
 print(urls)
-new_dict = urls
-print(type(new_dict))
-# 441 total links, 15 initial
-print(new_dict)
 
-for x in new_dict.keys():
-	print(x)
+"""
+"""
 
-i = 1
-while i < 15 
+def keep_on_souping(urls)
+	check_counter = counter
+	while counter is check_counter:
+		new_set = set(dict.values(urls))
+		soup_it(new_set)
+		print(counter)
+		check_counter = counter
+
+keep_on_souping(urls)
+
+print(urls)
+
+
+
+# 441 total links, 15 initial. 868 on next pass
 	
 
 
