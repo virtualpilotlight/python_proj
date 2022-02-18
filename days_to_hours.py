@@ -1,5 +1,5 @@
 # this is a comment
-import helper
+from helper import validate_and_execute
 
 user_input = ""
 while user_input != "exit":
@@ -13,4 +13,4 @@ while user_input != "exit":
  		"unit": days_and_unit[1]
  	}
 	print(days_and_unit_dictionary)
-	helper.validate_and_execute()
+	validate_and_execute()
