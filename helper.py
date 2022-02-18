@@ -25,4 +25,6 @@ def validate_and_execute(days_and_unit_dictionary):
 		else:
 			print("no negatives.")
 	except ValueError:
-		print("whole positive numbers only.")	
+		print("whole positive numbers only.")
+
+user_input_message = "Enter number days and conversion unit!\n"

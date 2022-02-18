@@ -68,10 +68,13 @@ print(urls)
 def keep_on_souping(urls)
 	check_counter = counter
 	while counter is check_counter:
+		count_check_checker = check_counter
 		new_set = set(dict.values(urls))
 		soup_it(new_set)
 		print(counter)
 		check_counter = counter
+		if count_check_checker = check_counter:
+			break
 
 keep_on_souping(urls)
 
