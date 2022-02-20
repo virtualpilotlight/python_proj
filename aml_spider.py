@@ -27,7 +27,24 @@ soup = BeautifulSoup(req.text, "html.parser")
 print(soup)
 
 counter = 0
-urls = {counter: url}
+
+class Soup_can:
+	def __init__(self, link_name, souped):
+		self.link_name = link_name
+		self.souped = souped
+
+can = Soup_can(url, false) 
+print(can)
+print(type(can))
+
+urls = {
+	0: {
+		link_name: url, 
+		souped: false
+	}
+}
+
+
 
 def get_links(soup):
 	global counter
