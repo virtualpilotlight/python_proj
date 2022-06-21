@@ -13,10 +13,9 @@ displayInventory(stuff)
 
 def addToInventory(inventory, addedItems):
 	for i in addedItems:
-		print(i)
-		for j, l in inventory.itmes():
-			print(j, l)
-		# if inventory.items():
+		inventory.setdefault(i, 0)
+		inventory[i] += 1
+	return inventory	
 
 inv = {'gold coin': 42, 'rope': 1}
 dragonLoot = ['gold coin', 'dagger', 'gold coin', 'gold coin', 'ruby']
