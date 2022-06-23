@@ -5,7 +5,7 @@ message = input()
 VOWELS = ('a', 'e', 'i', 'o', 'u', 'y')
 
 pigLatin = [] # A list of the words in Pig Latin
-for word in message.split()
+for word in message.split():
 	# Separate the non-letters at the start of this word:
 	prefixNonLetters = ''
 	while len(word) > 0 and not word[0].isalpha():
@@ -16,9 +16,9 @@ for word in message.split()
 		continue
 
 	# Separate if the word was in uppercase or title case. 
-	sufficNonLetters = ''
+	suffixNonLetters = ''
 	while not word[-1].isalpha():
-		sufficNonLetters += word[-1]
+		suffixNonLetters += word[-1]
 		word = word[:-1]
 
 	# Remember if the word was in uppercase or title case.
